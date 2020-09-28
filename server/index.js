@@ -3,6 +3,7 @@ const Twit = require('twit');
 const app = express();
 const router = require('express').Router();
 const cors = require('cors');
+const dotenv = require('dotenv').config();
 
 app.use(cors());
 app.use(router);
@@ -10,10 +11,10 @@ app.use(router);
 app.listen(3001, () => console.log('Server running'));
 
 var T = new Twit({
-  consumer_key: process.env.consumer_key,
-  consumer_secret: process.env.consumer_secret,
-  access_token: process.env.access_token,
-  access_token_secret: process.env.access_token_secret,
+  consumer_key: process.env.CONSUMER_KEY,
+  consumer_secret: process.env.CONSUMER_SECRET,
+  access_token: process.env.ACCESS_TOKEN,
+  access_token_secret: process.env.ACCESS_TOKEN_SECRET,
 });
 
 router.get('/tweets', function (req, res, next) {
