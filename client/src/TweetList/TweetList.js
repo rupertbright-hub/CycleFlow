@@ -9,7 +9,7 @@ function TweetList( {tweets} ) {
 
     return (
         <div >
-        {tweets && tweets.map((elem) => 
+        {tweets.map((elem) => 
             {return <div  className="flex m-5 w-2/3 bg-blue-500 bg-opacity-25 p-5 rounded-lg shadow-lg">
             <div>
                 {elem.entities.media  ? elem.entities.media.map((image, index) => {

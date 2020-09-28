@@ -24,7 +24,7 @@ function TweetForm() {
 
   const [form, setForm] = useState(initialState);
   const [postcode, setPostcode] = useState([]);
-  const [toggle, setToggle] = useState(true);
+  const [toggle, setToggle] = useState('true');
 
   console.log(form);
 
@@ -33,7 +33,7 @@ function TweetForm() {
     fetch(`https://api.postcodes.io/postcodes/ ${form.postcode}`)
       .then((res) => res.json())
       .then((postcode) => setPostcode(postcode));
-        diffPostcode(postcode);
+    diffPostcode(postcode);
   }
 
   function handleChange(e) {
@@ -70,14 +70,15 @@ function TweetForm() {
 
   let councilhandle = diffPostcode(postcode);
 
-  console.log(toggle)
+  console.log(toggle);
+  console.log(form.incident)
 
   const toggler = () => {
-      setToggle(false);
-  }
+    setToggle(false);
+  };
 
   return (
-    <div className='flex justify-center'>
+    <div className="flex justify-center">
       <div className="m-16">
         <form name="form" onSubmit={handleSubmit} className="w-full max-w-lg">
           <div className="flex flex-wrap -mx-3 mb-6">
@@ -90,6 +91,7 @@ function TweetForm() {
                 id="grid-first-name"
                 name="type"
                 type="text"
+                value={form.type}
                 placeholder="name"
                 onChange={handleChange}
               />
@@ -103,6 +105,7 @@ function TweetForm() {
                 className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                 name="date"
                 type="date"
+                value={form.date}
                 placeholder="*****"
                 onChange={handleChange}
               />
@@ -119,6 +122,7 @@ function TweetForm() {
                 name="incident"
                 type="text"
                 onChange={handleChange}
+                value={form.incident}
               />
             </div>
           </div>
@@ -129,7 +133,7 @@ function TweetForm() {
                 Council
               </label>
               <input
-              disabled={true}
+                disabled={true}
                 className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                 name="council"
                 type="text"
@@ -150,7 +154,7 @@ function TweetForm() {
                   name="urgency"
                   className="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                   id="grid-state"
-    
+                  value={form.urgency}
                 >
                   <option>High</option>
                   <option>Medium</option>
@@ -177,13 +181,14 @@ function TweetForm() {
                 className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                 type="text"
                 placeholder=""
+                value={form.postcode}
                 onChange={handleChange}
               />
             </div>
           </div>
           <div>
             <button
-                onClick={toggler} 
+              onClick={toggler}
               className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded mt-8"
               type="submit"
             >
@@ -191,14 +196,17 @@ function TweetForm() {
             </button>
           </div>
           <div>
-            <button disabled= {toggle} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded mt-8 w-64">
-              <i className="fa fa-twitter mr-3"></i>
-              <a
-                href={`http://twitter.com/intent/tweet?text=${councilhandle} ${form.incident} London via @InspectorRoute`}
+            <a
+              href={`http://twitter.com/intent/tweet?text=${councilhandle} ${form.incident} London via @InspectorRoute`}
+            >
+              <button
+                disabled={toggle}
+                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded mt-8 w-64"
+                // onClick={() => setForm(initialState)}
               >
-                Share on Twitter
-              </a>
-            </button>
+                <i className="fa fa-twitter mr-3"></i>Share on Twitter
+              </button>
+            </a>
           </div>
         </form>
       </div>
