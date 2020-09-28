@@ -1,8 +1,11 @@
 import React from 'react';
 
 function Nav() {
+
+
   return (
-    <div>
+    
+    <div className='mt-2 mb-2'>
       <div class="lg:px-16 px-6 bg-white flex flex-wrap items-center lg:py-0 py-2">
         <div class="flex-1 flex justify-between items-center">
           <a href="ok">
@@ -48,22 +51,6 @@ function Nav() {
                   href="ok"
                 >
                   Pricing
-                </a>
-              </li>
-              <li>
-                <a
-                  class="lg:p-4 py-3 px-0 block border-b-2 border-transparent hover:border-indigo-400"
-                  href="ok"
-                >
-                  Documentation
-                </a>
-              </li>
-              <li>
-                <a
-                  class="lg:p-4 py-3 px-0 block border-b-2 border-transparent hover:border-indigo-400 lg:mb-0 mb-2"
-                  href="ok"
-                >
-                  Support
                 </a>
               </li>
             </ul>

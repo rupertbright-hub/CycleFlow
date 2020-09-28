@@ -49,7 +49,7 @@ function TweetForm() {
   function addCouncil(postcode) {
     let newVal = postcode.result;
     for (let i in newVal) {
-      if (i === 'primary_care_trust') {
+      if (i === 'admin_district') {
         return newVal[i];
       }
     }
@@ -188,29 +188,29 @@ function TweetForm() {
               />
             </div>
           </div>
-          <div>
-            <button
-              onClick={toggler}
-              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded mt-8"
-              type="submit"
-            >
-              Submit
-            </button>
-          </div>
-          <div>
-            <a
-              href={`http://twitter.com/intent/tweet?text=${councilhandle} ${form.incident} London via @InspectorRoute`}
-            >
+          <div className="flex mt-6">
+            <div>
               <button
-                disabled={toggle}
-                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded mt-8 w-64"
-                // onClick={() => setForm(initialState)}
+                onClick={toggler}
+                className={`${toggle ? 'bg-blue-500' :'bg-blue-500 opacity-25 cursor-not-allowed'} hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-900 rounded mt-8 mb-0"`}
+                type="submit"
               >
-                <FontAwesomeIcon className="mr-3" icon={faTwitter} />
-                Share on Twitter
+                Submit
               </button>
-            </a>
-            {/* <FontAwesomeIcon icon={fabTwitter}/> */}
+            </div>
+            <div className="ml-auto">
+              <a
+                href={`http://twitter.com/intent/tweet?text=${councilhandle} ${form.incident} London via @InspectorRoute`}
+              >
+                <button
+                  className={`${toggle ? 'bg-blue-500 opacity-25 cursor-not-allowed' : 'bg-blue-500 animate-bounce'} hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-900 rounded mt-8 w-64 right-0`}
+                  // onClick={() => setForm(initialState)}
+                >
+                  <FontAwesomeIcon className="mr-3" icon={faTwitter} />
+                  Share on Twitter
+                </button>
+              </a>
+            </div>
           </div>
         </form>
       </div>

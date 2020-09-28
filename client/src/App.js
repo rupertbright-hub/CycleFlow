@@ -7,6 +7,7 @@ import Banner from './banner/Banner';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 
+
 const base_url = 'http://localhost:3001';
 function App() {
   const [tweets, setTweets] = useState([]);
@@ -17,20 +18,26 @@ function App() {
       .then((tweets) => setTweets(tweets));
   }, []);
 
-  console.log(tweets);
+//   console.log(tweets);
+//   const match = useRouteMatch('/');
+//   console.log(match)
+
 
   return (
+      
     <Router>
       <div className="App">
-        <Nav />
+
+     
+      <Nav className=''/>
         <Switch>
           <Route path="/" exact component={Banner} />
           <Route path="/tweetform" component={TweetForm} />
-        </Switch>
         <Route
             path="/tweetlist"
             component={(props) => <TweetList {...props} tweets = {tweets} />}
           />
+          </Switch>
         <Footer />
       </div>
     </Router>
