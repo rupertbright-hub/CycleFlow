@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTwitter } from '@fortawesome/free-brands-svg-icons';
 
 const councils = {
   'Barking and Dagenham': '@lbbdcouncil',
@@ -71,7 +73,7 @@ function TweetForm() {
   let councilhandle = diffPostcode(postcode);
 
   console.log(toggle);
-  console.log(form.incident)
+  console.log(form.incident);
 
   const toggler = () => {
     setToggle(false);
@@ -204,9 +206,11 @@ function TweetForm() {
                 className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded mt-8 w-64"
                 // onClick={() => setForm(initialState)}
               >
-                <i className="fa fa-twitter mr-3"></i>Share on Twitter
+                <FontAwesomeIcon className="mr-3" icon={faTwitter} />
+                Share on Twitter
               </button>
             </a>
+            {/* <FontAwesomeIcon icon={fabTwitter}/> */}
           </div>
         </form>
       </div>

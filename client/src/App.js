@@ -6,6 +6,7 @@ import Footer from './Footer/footer';
 import Banner from './banner/Banner';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
+
 const base_url = 'http://localhost:3001';
 function App() {
   const [tweets, setTweets] = useState([]);
