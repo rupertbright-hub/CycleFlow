@@ -29,7 +29,6 @@ router.get('/tweets', function (req, res, next) {
 });
 
 // var stream = T.stream('statuses/filter', { track: ['@InspectorRoute']})
- 
 // stream.on('tweet', function (tweet) {
 //     console.log(tweet)
 // })

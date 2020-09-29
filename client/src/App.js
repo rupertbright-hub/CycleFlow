@@ -2,10 +2,8 @@ import React, { useEffect, useState } from 'react';
 import Nav from './Nav/Nav';
 import TweetForm from './TweetForm/TweetForm';
 import TweetList from './TweetList/TweetList';
-import Footer from './Footer/footer';
 import Banner from './banner/Banner';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-
 
 
 const base_url = 'http://localhost:3001';
@@ -35,10 +33,9 @@ function App() {
           <Route path="/tweetform" component={TweetForm} />
         <Route
             path="/tweetlist"
-            component={(props) => <TweetList {...props} tweets = {tweets} />}
+            component={(...props) => <TweetList {...props} tweets = {tweets} />}
           />
           </Switch>
-        <Footer />
       </div>
     </Router>
   );

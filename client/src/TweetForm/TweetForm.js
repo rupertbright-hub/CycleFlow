@@ -192,7 +192,11 @@ function TweetForm() {
             <div>
               <button
                 onClick={toggler}
-                className={`${toggle ? 'bg-blue-500' :'bg-blue-500 opacity-25 cursor-not-allowed'} hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-900 rounded mt-8 mb-0"`}
+                className={`${
+                  toggle
+                    ? 'bg-blue-500'
+                    : 'bg-blue-500 opacity-25 cursor-not-allowed'
+                } hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-900 rounded mt-8 mb-0"`}
                 type="submit"
               >
                 Submit
@@ -203,7 +207,11 @@ function TweetForm() {
                 href={`http://twitter.com/intent/tweet?text=${councilhandle} ${form.incident} London via @InspectorRoute`}
               >
                 <button
-                  className={`${toggle ? 'bg-blue-500 opacity-25 cursor-not-allowed' : 'bg-blue-500 animate-bounce'} hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-900 rounded mt-8 w-64 right-0`}
+                  className={`${
+                    toggle
+                      ? 'bg-blue-500 opacity-25 cursor-not-allowed'
+                      : 'bg-blue-500 animate-bounce'
+                  } hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-900 rounded mt-8 w-64 right-0`}
                   // onClick={() => setForm(initialState)}
                 >
                   <FontAwesomeIcon className="mr-3" icon={faTwitter} />

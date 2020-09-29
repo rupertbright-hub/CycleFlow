@@ -5,7 +5,7 @@ function Nav() {
 
   return (
     
-    <div className='mt-2 mb-2'>
+    <div className='mt-1 mb-1'>
       <div class="lg:px-16 px-6 bg-white flex flex-wrap items-center lg:py-0 py-2">
         <div class="flex-1 flex justify-between items-center">
           <a href="ok">
@@ -40,17 +40,17 @@ function Nav() {
               <li>
                 <a
                   class="lg:p-4 py-3 px-0 block border-b-2 border-transparent hover:border-indigo-400"
-                  href="ok"
+                  href="/"
                 >
-                  Features
+                  Home
                 </a>
               </li>
               <li>
                 <a
                   class="lg:p-4 py-3 px-0 block border-b-2 border-transparent hover:border-indigo-400"
-                  href="ok"
+                  href="/tweetlist"
                 >
-                  Pricing
+                  Tweets
                 </a>
               </li>
             </ul>
