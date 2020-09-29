@@ -1,14 +1,27 @@
 import React from 'react';
 import cycleflow from '../cycleflow2.png';
 import { Link } from 'react-router-dom';
+import animationData from '../washer-riding.json';
+import Lottie from 'react-lottie';
 
 function nav() {
+
+    const defaultOptions = {
+        loop: true,
+        autoplay: true,
+        animationData: animationData,
+        rendererSettings: {
+          preserveAspectRatio: 'xMidYMid slice',
+        },
+      };
+      
   return (
     <div>
       <div className="bg-gradient-to-r from-blue-400 to-blue-800 justify-center items-center text-center h-screen">
         <div>
         <div className=''>
           <img alt="logo" className=" sm:pt-4 md:pt-32 mx-auto" src={cycleflow}></img>
+        <Lottie options={defaultOptions} height={233} width={400} />
           </div>
           <div className='sm: mt-0'>
           <h1 className="m-1 p-1 md: text-gray-200 text-5xl font-body font-bold mt-6">
@@ -17,7 +30,7 @@ function nav() {
           </div>
           <div className='p-6'>
           <h3 className=" mt-6 text-gray-200 font-body">
-            A cycling app that directly reports your issues{' '}
+            A cycling app that directly reports your issues
           </h3>
           </div>
         </div>

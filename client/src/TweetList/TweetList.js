@@ -1,6 +1,6 @@
 import React from 'react';
 import Lottie from 'react-lottie';
-import animationData from '../washer-riding.json';
+import animationData from '../10687-not-found.json';
 import Nav from '../Nav/Nav';
 
 function TweetList({ tweets }) {
@@ -8,10 +8,6 @@ function TweetList({ tweets }) {
   const removeURL = (text) => {
     return text.replace(/(?:https?|ftp):\/\/[\n\S]+/g, '');
   };
-
-  console.log(tweets)
- 
-
 
   const defaultOptions = {
     loop: true,
@@ -48,8 +44,8 @@ function TweetList({ tweets }) {
                   })
                 ) : (
                   <div className="justify-content text-center">
-                    <Lottie options={defaultOptions} height={233} width={400} />
-                    <h3>Waiting on user to submit!</h3>
+                    <Lottie options={defaultOptions} height={243} width={375} />
+                    <h3>No user image uploaded!</h3>
                   </div>
                 )}
                 <div className="m-4 flex">
@@ -62,7 +58,7 @@ function TweetList({ tweets }) {
                   </div>
                   <div className='ml-8 mt-12 h-32'>
                   <p className='leading-7'>{`Tweeted by: ${elem.user.name}`}</p>
-                  <h3 className=" text-white font-bold ">{removeURL(elem.text)}</h3>
+                  <h3 className=" text-white font-bold mt-6 ">{removeURL(elem.text)}</h3>
                   </div>
                 </div>
               </div>

@@ -15,10 +15,6 @@ function App() {
       .then((tweets) => setTweets(tweets));
   }, []);
 
-  console.log(tweets);
-//   const match = useRouteMatch('/');
-//   console.log(match)
-
 
   return (
       

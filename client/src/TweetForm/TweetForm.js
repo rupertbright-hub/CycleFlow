@@ -37,6 +37,7 @@ function TweetForm() {
       .then((res) => res.json())
       .then((postcode) => setPostcode(postcode));
     diffPostcode(postcode);
+    
   }
 
   function handleChange(e) {
@@ -61,9 +62,11 @@ function TweetForm() {
   //       console.log('hello')
   //   }
 
-  function refreshPage() {
-    return window.location.reload();
-  }
+    function refreshPage() {
+        setTimeout(function(){
+            window.location.reload(true);
+           },1000);
+    }
 
   const diffPostcode = (postcode) => {
     let selection = '';
@@ -98,7 +101,7 @@ function TweetForm() {
                   Report Type
                 </label>
                 <input
-                  className="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+                  className="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
                   id="grid-first-name"
                   name="type"
                   type="text"
@@ -184,12 +187,16 @@ function TweetForm() {
               </div>
 
               <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-                <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
+                <label className= {`${
+                      toggle
+                        ? 'text-gray-200'
+                        : 'text-gray-900'
+                    } block uppercase tracking-wide text-gray-200 text-xs font-bold mb-2`}>
                   Council
                 </label>
                 <input
                   name="council"
-                  className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                  className= "appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                   type="text"
                   placeholder=""
                   onChange={handleChange}
@@ -217,6 +224,7 @@ function TweetForm() {
                   href={`http://twitter.com/intent/tweet?text=${councilhandle} ${form.incident} London via @InspectorRoute`}
                 >
                   <button
+                  onClick={() => refreshPage()}
                     className={`${
                       toggle
                         ? 'bg-blue-500 opacity-25 cursor-not-allowed'
@@ -230,11 +238,11 @@ function TweetForm() {
               </div>
             </div>
             {
-              <div className="bg-red-400 rounded-md mt-8 border-red-800">
+              <div className="">
                 {toggle ? (
                   ''
                 ) : (
-                  <div className="p-8">
+                  <div className="bg-gray-200 rounded-md mt-8 border-2 border-blue-500 p-8 transition">
                     Based on your postcode we have added in your councils
                     twitter handle : )
                   </div>
