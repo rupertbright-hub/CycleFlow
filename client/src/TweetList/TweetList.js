@@ -2,6 +2,8 @@ import React from 'react';
 import Lottie from 'react-lottie';
 import animationData from '../10687-not-found.json';
 import Nav from '../Nav/Nav';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTwitter } from '@fortawesome/free-brands-svg-icons';
 
 function TweetList({ tweets }) {
     
@@ -23,7 +25,7 @@ function TweetList({ tweets }) {
     <div>
     <Nav className=''/>
     <div className='text-center divide-blue-300'>
-    <h1 className='text-body text-5xl mt-20 mb-20'>User Twitter Submissions</h1>
+    <FontAwesomeIcon className="fa-2x" icon={faTwitter}/><h1 className='text-body text-5xl mt-20 mb-20'>User Twitter Submissions</h1>
     </div>
     <div className="w-screen flex flex-wrap ">
       {tweets.map((elem, index) => {
@@ -44,21 +46,21 @@ function TweetList({ tweets }) {
                   })
                 ) : (
                   <div className="justify-content text-center">
-                    <Lottie options={defaultOptions} height={243} width={375} />
+                    <Lottie options={defaultOptions} height={238} width={375} />
                     <h3>No user image uploaded!</h3>
                   </div>
                 )}
-                <div className="m-4 flex">
-                  <div>
+                <div className="m-0">
+                  <div className='flex'>
                     <img
-                      className="rounded-full  mt-12 h-20 w-20 flex items-center justify-center"
+                      className="rounded-full  mt-4 h-15 w-15 flex items-center justify-center ml-4"
                       alt="hello"
                       src={elem.user.profile_image_url}
                     />
+                  <p className='align-middle mt-6 ml-2 text-gray-200'>{`Tweeted by: ${elem.user.name}`}</p>
                   </div>
-                  <div className='ml-8 mt-12 h-32'>
-                  <p className='leading-7'>{`Tweeted by: ${elem.user.name}`}</p>
-                  <h3 className=" text-white font-bold mt-6 ">{removeURL(elem.text)}</h3>
+                  <div>
+                  <h3 className=" text-gray-200 font-bold ml-12 p-3 h-32">{removeURL(elem.text)}</h3>
                   </div>
                 </div>
               </div>

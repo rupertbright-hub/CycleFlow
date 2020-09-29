@@ -101,7 +101,7 @@ function TweetForm() {
                   Report Type
                 </label>
                 <input
-                  className="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+                  className="appearance-none block w-full text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
                   id="grid-first-name"
                   name="type"
                   type="text"
@@ -242,9 +242,8 @@ function TweetForm() {
                 {toggle ? (
                   ''
                 ) : (
-                  <div className="bg-gray-200 rounded-md mt-8 border-2 border-blue-500 p-8 transition">
-                    Based on your postcode we have added in your councils
-                    twitter handle : )
+                  <div className="bg-gray-200 rounded-md mt-8 border-2 font-bold border-blue-500 p-8 transition">
+                    We have automatically populated the tweet, we will add the relevant councils Twitter handle based on the postcode you provided.  😇  
                   </div>
                 )}
               </div>
@@ -253,6 +252,7 @@ function TweetForm() {
         </div>
       </div>
     </div>
+
   );
 }
 
