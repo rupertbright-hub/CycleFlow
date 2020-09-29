@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import Nav from './Nav/Nav';
 import TweetForm from './TweetForm/TweetForm';
 import TweetList from './TweetList/TweetList';
 import Banner from './banner/Banner';
@@ -16,7 +15,7 @@ function App() {
       .then((tweets) => setTweets(tweets));
   }, []);
 
-//   console.log(tweets);
+  console.log(tweets);
 //   const match = useRouteMatch('/');
 //   console.log(match)
 
@@ -26,8 +25,6 @@ function App() {
     <Router>
       <div className="App">
 
-     
-      <Nav className=''/>
         <Switch>
           <Route path="/" exact component={Banner} />
           <Route path="/tweetform" component={TweetForm} />
