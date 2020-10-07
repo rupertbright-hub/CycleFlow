@@ -1,6 +1,4 @@
 import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTwitter } from '@fortawesome/free-brands-svg-icons';
 
 function Nav() {
   return (
@@ -47,10 +45,6 @@ function Nav() {
               </li>
             </ul>
           </nav>
-          <a
-            href="ok"
-            class="lg:ml-4 flex items-center justify-start lg:mb-0 mb-4 pointer-cursor"
-          ></a>
         </div>
       </div>
     </div>
