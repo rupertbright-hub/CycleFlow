@@ -18,8 +18,6 @@ function Banner() {
         return () => window.removeEventListener("resize", resizeWindow);
       }, []);
 
-      console.log(windowWidth)
-
   const defaultOptions = {
     loop: true,
     autoplay: true,

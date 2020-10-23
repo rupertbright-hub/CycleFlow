@@ -244,7 +244,7 @@ function TweetForm() {
                   <div className="bg-gray-200 rounded-md mt-8 border-2 font-bold border-blue-500 p-8 transition">
                     We have automatically populated the tweet, we have added the
                     relevant councils Twitter username based on the postcode you
-                    provided. 😇
+                    provided. 
                   </div>
                 )}
               </div>

@@ -1,6 +1,5 @@
 import React from 'react';
-import Lottie from 'react-lottie';
-import animationData from '../10687-not-found.json';
+// import animationData from '../10687-not-found.json';
 import Nav from '../Nav/Nav';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTwitter } from '@fortawesome/free-brands-svg-icons';
@@ -11,14 +10,14 @@ function TweetList({ tweets }) {
     return text.replace(/(?:https?|ftp):\/\/[\n\S]+/g, '');
   };
 
-  const defaultOptions = {
-    loop: true,
-    autoplay: true,
-    animationData: animationData,
-    rendererSettings: {
-      preserveAspectRatio: 'xMidYMid slice',
-    },
-  };
+//   const defaultOptions = {
+//     loop: true,
+//     autoplay: true,
+//     animationData: animationData,
+//     rendererSettings: {
+//       preserveAspectRatio: 'xMidYMid slice',
+//     },
+//   };
 
   return (
       
