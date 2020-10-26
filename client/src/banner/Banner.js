@@ -1,5 +1,4 @@
 import React from "react";
-import logo from '../IRLogo.png';
 import { Link } from 'react-router-dom';
 
 
@@ -12,15 +11,15 @@ function Banner() {
     <div className='bg-hero bg-cover  opacity-75'>
       <div className="justify-center items-center text-center bg-blue-700 opacity-90">
         <div className=' w-3/3 m-auto self-center'>
-          <div className="pt-2 md:pt-2">
-            <img
+          {/* <div className="pt-2 md:pt-2"> */}
+            {/* <img
               alt="logo"
               className="md:pt-2 mx-auto"
               src={logo}
-            ></img>
+            ></img> */}
             {/* {windowWidth > 500 ?
             <Lottie options={defaultOptions} height={233} width={400} /> : ''} */}
-          </div>
+          {/* </div> */}
           <div className="sm: mt-0">
             <h1 className="md: text-white mr-24 ml-24 text-5xl font-body font-bold">
               Keeping London Cyclists Safe

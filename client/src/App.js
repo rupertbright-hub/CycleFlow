@@ -12,8 +12,12 @@ function App() {
     <Router>
       <div className="App">
           <Route path="/" exact component={Banner}/>
+          <div className='flex flex-wrap'>
           <Route path="/" exact component={TweetList}/>
+          </div>
+          
           <Route path="/tweetform" component={TweetForm} />
+         
        
       </div>
     </Router>
