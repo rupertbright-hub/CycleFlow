@@ -1,12 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import TweetForm from './TweetForm/TweetForm';
 import TweetList from './TweetList/TweetList';
 import Banner from './banner/Banner';
 
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-
-
-const base_url = 'http://localhost:3001';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 function App() {
 
@@ -14,8 +11,6 @@ function App() {
       
     <Router>
       <div className="App">
-
-    
           <Route path="/" exact component={Banner}/>
           <Route path="/" exact component={TweetList}/>
           <Route path="/tweetform" component={TweetForm} />

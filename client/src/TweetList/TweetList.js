@@ -1,7 +1,19 @@
 import React, { useEffect, useState } from 'react';
-import Nav from '../Nav/Nav';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTwitter } from '@fortawesome/free-brands-svg-icons';
+import Modal from 'react-modal';
+// import Flashcard from '../modal/flashcard';
+
+// const customStyles = {
+//     content : {
+//       top                   : '50%',
+//       left                  : '50%',
+//       right                 : 'auto',
+//       bottom                : 'auto',
+//       marginRight           : '-50%',
+//       transform             : 'translate(-50%, -50%)',
+//     }
+//   };
 
 function TweetList() {
     const base_url = 'http://localhost:3001';
@@ -11,40 +23,39 @@ function TweetList() {
   };
 
   const [tweets, setTweets] = useState([]);
+//   const [modalIsOpen,setIsOpen] = useState(false);
+
+
 
   useEffect(() => {
     fetch(base_url + '/tweets')
       .then((res) => res.json())
-      .then((tweets) => setTweets(tweets));
+      .then((tweets) => setTweets(tweets.filter(el => el.entities.media)));
   }, []);
 
-//   const defaultOptions = {
-//     loop: true,
-//     autoplay: true,
-//     animationData: animationData,
-//     rendererSettings: {
-//       preserveAspectRatio: 'xMidYMid slice',
-//     },
-//   };
+  function openModal() {
+    setIsOpen(true);
+  }
+ 
+  function closeModal(){
+    setIsOpen(false);
+  }
 
   return (
-      
     <div className='bg-gray-200'>
     <div className='flex'>
-    <div className='m-auto flex p-4'>
+    <div  className='m-auto flex p-4'>
     <FontAwesomeIcon className="fa-2x self-center mr-4" icon={faTwitter}/>
     <h1 className='text-body text-3xl'>User Twitter Submissions</h1>
     </div>
     </div>
-    <div className="w-screen
- flex flex-wrap ">
-      {tweets.map((elem, index) => {
-          return elem.entities.media ?
-          ( <div key={index} className="w-screen md:w-1/2 lg:w-1/5 ">
-            <div className="m-2 bg-gradient-to-r from-blue-400 to-blue-800 bg-opacity-25 border border-gray-900 shadow-lg">
+    <div className="w-screen flex flex-wrap ">
+      {tweets.map((elem, index) => { 
+          return (
+       <div key={index} className="w-screen md:w-1/2 lg:w-1/5 ">
+            <div onClick={() => openModal()} className="m-2 bg-gradient-to-r from-blue-400 to-blue-800 bg-opacity-25 border border-gray-900 shadow-lg">
               <div>
-                {elem.entities.media ? (
-                  elem.entities.media.map((image, index) => {
+                {elem.entities.media.map((image, index) => {
                     return (
                       <img
                         className="w-full object-cover h-64"
@@ -52,14 +63,7 @@ function TweetList() {
                         key={index}
                         src={image.media_url}
                       />
-                    );
-                  })
-                ) : (
-                  <div className="justify-content text-center">
-                    {/* <Lottie options={defaultOptions} height={238} width={375} /> */}
-                    <h3>No user image uploaded!</h3>
-                  </div>
-                )}
+                )})}
                 <div className="">
                   <div className='text-center'>
                     <img
@@ -78,12 +82,11 @@ function TweetList() {
                 </div>
               </div>
             </div>
-          </div>
-        ) : null
-      })}
+          </div> 
+          )})}
     </div>
     </div>
-  );
+  ); 
 }
 
 export default TweetList;
