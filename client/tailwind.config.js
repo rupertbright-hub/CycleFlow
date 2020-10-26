@@ -15,14 +15,22 @@ module.exports = {
           '72': '18rem',
           '84': '21rem',
           '96': '24rem',
-                }
-      
+                },
+        
+     backgroundImage: {
+        hero: "url('./hero.jpg')",
     },
+
+    opacity: {
+        '80': '.8',
+        '90':'.9',
+    },
+
     variants: {},
     plugins: [
-      // require('@tailwindcss/ui'),
       require('tailwindcss'),
       require('autoprefixer'),
     ],
   },
-};
+}
+}

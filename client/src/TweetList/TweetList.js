@@ -1,14 +1,22 @@
-import React from 'react';
-// import animationData from '../10687-not-found.json';
+import React, { useEffect, useState } from 'react';
 import Nav from '../Nav/Nav';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTwitter } from '@fortawesome/free-brands-svg-icons';
 
-function TweetList({ tweets }) {
+function TweetList() {
+    const base_url = 'http://localhost:3001';
     
   const removeURL = (text) => {
     return text.replace(/(?:https?|ftp):\/\/[\n\S]+/g, '');
   };
+
+  const [tweets, setTweets] = useState([]);
+
+  useEffect(() => {
+    fetch(base_url + '/tweets')
+      .then((res) => res.json())
+      .then((tweets) => setTweets(tweets));
+  }, []);
 
 //   const defaultOptions = {
 //     loop: true,
@@ -21,17 +29,19 @@ function TweetList({ tweets }) {
 
   return (
       
-    <div>
-    <Nav className=''/>
-    <div className='text-center divide-blue-300'>
-    <FontAwesomeIcon className="fa-2x" icon={faTwitter}/><h1 className='text-body text-5xl mt-20 mb-20'>User Twitter Submissions</h1>
+    <div className='bg-gray-200'>
+    <div className='flex'>
+    <div className='m-auto flex p-4'>
+    <FontAwesomeIcon className="fa-2x self-center mr-4" icon={faTwitter}/>
+    <h1 className='text-body text-3xl'>User Twitter Submissions</h1>
+    </div>
     </div>
     <div className="w-screen
  flex flex-wrap ">
       {tweets.map((elem, index) => {
-        return (
-          <div key={index} className="w-screen md:w-1/2 lg:w-1/3">
-            <div className="m-5 bg-gradient-to-r from-blue-400 to-blue-800 bg-opacity-25 p-5 rounded-lg shadow-lg">
+          return elem.entities.media ?
+          ( <div key={index} className="w-screen md:w-1/2 lg:w-1/5 ">
+            <div className="m-2 bg-gradient-to-r from-blue-400 to-blue-800 bg-opacity-25 border border-gray-900 shadow-lg">
               <div>
                 {elem.entities.media ? (
                   elem.entities.media.map((image, index) => {
@@ -50,23 +60,26 @@ function TweetList({ tweets }) {
                     <h3>No user image uploaded!</h3>
                   </div>
                 )}
-                <div className="m-0">
-                  <div className='flex'>
+                <div className="">
+                  <div className='text-center'>
                     <img
-                      className="rounded-full  mt-4 h-15 w-15 flex items-center justify-center ml-4"
+                      className="rounded-full h-16 w-16 flex items-center justify-center m-auto mt-4"
                       alt="hello"
                       src={elem.user.profile_image_url}
                     />
-                  <p className='align-middle mt-6 ml-2 text-gray-200'>{`Tweeted by: ${elem.user.name}`}</p>
+                  <p className='align-middle mt-4 ml-2 text-gray-200 font-bold'>{`@${elem.user.name}`}</p>
+                  </div>
+                  <div className='text-center mt-2'>
+                  <FontAwesomeIcon className="fa-2x text-gray-100 mt-2" icon={faTwitter}/>
                   </div>
                   <div>
-                  <h3 className=" text-gray-200 font-bold ml-12 p-3 h-32">{removeURL(elem.text)}</h3>
+                  <h3 className=" text-gray-200 font-bold p-3 h-32 text-center">{removeURL(elem.text)}</h3>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        );
+        ) : null
       })}
     </div>
     </div>
