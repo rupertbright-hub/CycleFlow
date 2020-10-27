@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTwitter } from '@fortawesome/free-brands-svg-icons';
 import Nav from '../Nav/Nav';
 
+
 const councils = {
   'Barking and Dagenham': '@lbbdcouncil',
   Camden: '@CamdenCouncil',
@@ -29,8 +30,6 @@ function TweetForm() {
   const [postcode, setPostcode] = useState([]);
   const [toggle, setToggle] = useState('true');
 
-  console.log(form);
-
   function handleSubmit(e) {
     e.preventDefault();
     fetch(`https://api.postcodes.io/postcodes/ ${form.postcode}`)
@@ -55,11 +54,6 @@ function TweetForm() {
       }
     }
   }
-
-  //   function clearForm () {
-  //       setTimeout(function () { setForm(initialState);}, 1000)
-  //       console.log('hello')
-  //   }
 
   function refreshPage() {
     setTimeout(function () {
@@ -93,7 +87,7 @@ function TweetForm() {
       <Nav className="" />
       <div className="flex justify-center">
         <div className="m-16">
-          <form name="form" onSubmit={handleSubmit} className="w-full max-w-lg">
+          <form name="form" onSubmit={handleSubmit} className="w-full max-w-lg p-8 bg-pngop">
             <div className="flex flex-wrap -mx-3 mb-6">
               <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
                 <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">

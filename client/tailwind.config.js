@@ -19,6 +19,7 @@ module.exports = {
         
      backgroundImage: {
         hero: "url('./hero.jpg')",
+        pngop: "url('./assets/pngop.png')",
     },
 
     opacity: {
