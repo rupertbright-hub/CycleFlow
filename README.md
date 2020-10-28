@@ -2,7 +2,7 @@
 
 <!-- Remember to reflect any changes to the readme in the Table of Contents-->
 
-## An app to log and flag issues seen by cyclists in London on their cycle route directly to councils. 
+## An app to log and flag issues seen by cyclists on their route in London. 
 
 ![Node.js CI](https://github.com/ilyadusoleil/zapp/workflows/Node.js%20CI/badge.svg)
 
@@ -10,7 +10,7 @@
   <img src="./Images/desktop-image.png">
 </p>
 
-CycleFlow utilises the Twitter API to allow users to centrally log any issues seen on their route. By directly mentioning the CycleFlow Twitter account this information gets logged onto the CycleFlow web app for councils and users to review. The web app also allows users to tweet and by logging the location of the issue the app will pre-populate the tweet with the relevant council. 
+CycleFlow utilises the Twitter API to allow users to centrally log any issues seen on their route. By directly mentioning the CycleFlow Twitter account this information gets logged onto the CycleFlow web app for councils and users to review. The web app also allows users to tweet and by logging the location of the issue the app will pre-populate the tweet with the relevant council Twitter handle.. 
 
 ## Tech Stack
 
